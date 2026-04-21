@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liking & Disliking Mini Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Merriweather:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark">
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="title-wrap">
+        <h1>Liking & Disliking - 50 Question Test</h1>
+        <p class="subtitle">Vocabulary + usage (MCQ and typing mix)</p>
+      </div>
+
+      <div class="top-actions">
+        <button id="settings-trigger" class="icon-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="settings-menu">
+          <span aria-hidden="true">⚙</span>
+          <span class="sr-only">Open settings</span>
+        </button>
+
+        <aside id="settings-menu" class="settings-popover" aria-label="Settings panel" aria-hidden="true">
+          <div class="settings-head">
+            <h3>Settings</h3>
+            <button id="settings-close" class="icon-btn mini" type="button" aria-label="Close settings">✕</button>
+          </div>
+
+          <label class="switch-row" for="theme-toggle">
+            <span>Dark Mode</span>
+            <span class="switch">
+              <input type="checkbox" id="theme-toggle" />
+              <span class="slider"></span>
+            </span>
+          </label>
+
+          <label for="font-family">Font Type</label>
+          <select id="font-family">
+            <option value="'Manrope', sans-serif">Manrope</option>
+            <option value="'Rubik', sans-serif">Rubik</option>
+            <option value="'Merriweather', serif">Merriweather</option>
+          </select>
+
+          <label for="font-size">Font Size: <span id="font-size-value">16px</span></label>
+          <input type="range" id="font-size" min="14" max="22" step="1" value="16" />
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section id="setup-screen" class="screen active">
+        <article class="card">
+          <p class="creator-credit">Created by asliddincoder</p>
+          <h2>Startdan oldin</h2>
+          <p>Username kiriting, testni oldindan ko'rib chiqing, keyin 60 daqiqalik timer bilan boshlang.</p>
+
+          <label for="username">Username</label>
+          <input id="username" type="text" maxlength="40" placeholder="Ismingizni kiriting" autocomplete="name" />
+          <p id="setup-error" class="error-text" role="alert"></p>
+
+          <button id="preview-btn" class="primary-btn">Testni ko'rib chiqish</button>
+        </article>
+      </section>
+
+      <section id="preview-screen" class="screen">
+        <article class="card wide">
+          <h2>Preview</h2>
+          <p id="preview-user"></p>
+          <p>Bu bosqichda savollar bilan tanishasiz. <strong>Start Test</strong> bosilganda 60:00 timer ishga tushadi.</p>
+
+          <div id="preview-list" class="questions-grid"></div>
+
+          <div class="actions">
+            <button id="back-btn" class="ghost-btn">Ismni o'zgartirish</button>
+            <button id="start-btn" class="primary-btn">Start Test (60:00)</button>
+          </div>
+        </article>
+      </section>
+
+      <section id="test-screen" class="screen">
+        <article class="card wide">
+          <div class="test-header">
+            <p><strong>User:</strong> <span id="active-user"></span></p>
+            <p><strong>Answered:</strong> <span id="answered-count">0</span>/50</p>
+            <p class="timer" id="timer">01:00:00</p>
+          </div>
+
+          <form id="test-form">
+            <div id="test-questions" class="questions-grid"></div>
+            <button type="submit" id="submit-btn" class="primary-btn">Testni tugatish</button>
+          </form>
+        </article>
+      </section>
+
+      <section id="result-screen" class="screen">
+        <article class="card result-card">
+          <h2>Result</h2>
+          <p><strong>Username:</strong> <span id="result-user"></span></p>
+          <p><strong>Tugatgan vaqti:</strong> <span id="result-time"></span></p>
+          <p><strong>To'g'ri javoblar:</strong> <span id="result-correct"></span>/50</p>
+          <p><strong>Javob berilgan:</strong> <span id="result-attempted"></span>/50</p>
+          <p><strong>Foiz:</strong> <span id="result-percent"></span>%</p>
+
+          <button id="retry-btn" class="primary-btn">Try Again</button>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
